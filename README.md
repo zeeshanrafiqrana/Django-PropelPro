@@ -36,9 +36,9 @@ Django SwiftStart is your shortcut to efficient and secure Django web developmen
 
 We welcome contributions to make Django SwiftStart even better! Here's how you can get involved:
 
-- Report issues or suggest enhancements in the [Issue Tracker](https://github.com/zeeshanrafiqrana/Django-SwiftStart.git/issues).
+- Report issues or suggest enhancements in the [Issue Tracker](https://github.com/zeeshanrafiqrana/Django-SwiftStart/issues).
 - Contribute code by forking the repository, making changes, and submitting pull requests.
-- Join our community and engage in discussions on [Discussions](https://github.com/zeeshanrafiqrana/Django-SwiftStart.git/discussions).
+- Join our community and engage in discussions on [Discussions](https://github.com/zeeshanrafiqrana/Django-SwiftStart/discussions).
 
 Please follow our [Contributing Guidelines](CONTRIBUTING.md) for details on the process.
 
