@@ -1,0 +1,13 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==4.2.6"
+python-environ = "==0.4.54"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"
