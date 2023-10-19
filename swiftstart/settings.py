@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 import environ
 from pathlib import Path
+from modules.manifest import get_modules
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +27,7 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 SECRET_KEY = env("SECRET_KEY", default="VDOmDEnYFEpfljjzxJpMoGhATovkyKqzVIUxbpiN")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = []
 
@@ -40,6 +42,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+DJANGO_LOCAL_APPS = [
+    "apps.users.apps.UsersConfig",
+]
+
+THIRD_PARTY_APPS = [
+
+]
+
+MODULES_APPS = get_modules()
+
+INSTALLED_APPS += DJANGO_LOCAL_APPS + THIRD_PARTY_APPS + MODULES_APPS
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,6 +96,11 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+if env.str("DATABASE_URL", default=None):
+    DATABASES = {
+        'default': env.db()
+    }
 
 
 # Password validation
