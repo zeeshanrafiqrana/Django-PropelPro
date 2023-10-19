@@ -1,14 +1,14 @@
-# Django SwiftStart 🚀
+# Django PropelPro 🚀
 
-Django SwiftStart is your shortcut to efficient and secure Django web development. Kickstart your projects with speed and ease.
+Django PropelPro is your indispensable tool for launching Django projects with remarkable speed and ease. Propel your development with this production-ready boilerplate, designed to streamline your work and ensure efficient, secure, and professional web development. Start your Django journey on the fast track with PropelPro! 🚀💻🚀
 
 ## Getting Started
 
 1. **Installation**: Clone the repository and set up your virtual environment.
 
     ```bash
-    git clone https://github.com/zeeshanrafiqrana/Django-SwiftStart.git
-    cd Django-SwiftStart
+    git clone https://github.com/zeeshanrafiqrana/Django-PropelPro.git
+    cd Django-PropelPro
     python -m venv venv
     source venv/bin/activate  # On Windows: venv\Scripts\activate
     pip install pipenv #only first time
@@ -34,17 +34,17 @@ Django SwiftStart is your shortcut to efficient and secure Django web developmen
 
 ## Contributions
 
-We welcome contributions to make Django SwiftStart even better! Here's how you can get involved:
+We welcome contributions to make Django PropelPro even better! Here's how you can get involved:
 
-- Report issues or suggest enhancements in the [Issue Tracker](https://github.com/zeeshanrafiqrana/Django-SwiftStart/issues).
+- Report issues or suggest enhancements in the [Issue Tracker](https://github.com/zeeshanrafiqrana/Django-PropelPro/issues).
 - Contribute code by forking the repository, making changes, and submitting pull requests.
-- Join our community and engage in discussions on [Discussions](https://github.com/zeeshanrafiqrana/Django-SwiftStart/discussions).
+- Join our community and engage in discussions on [Discussions](https://github.com/zeeshanrafiqrana/Django-PropelPro/discussions).
 
 Please follow our [Contributing Guidelines](CONTRIBUTING.md) for details on the process.
 
 ## License
 
-Django SwiftStart is open-source software released under the [MIT License](LICENSE). You are free to use this boilerplate in your projects.
+Django PropelPro is open-source software released under the [MIT License](LICENSE). You are free to use this boilerplate in your projects.
 
 ---
 
