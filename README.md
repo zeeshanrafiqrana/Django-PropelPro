@@ -17,6 +17,11 @@ Django PropelPro is your indispensable tool for launching Django projects with r
 
 2. **Configuration**: Customize your project settings and secrets in the `.env` file.
 
+   ```bash
+    cp .env.example .env
+    # Customize your settings in the .env file
+    ```
+
 3. **Database Setup**: Run migrations and create a superuser.
 
     ```bash
