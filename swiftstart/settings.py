@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 import environ
 from pathlib import Path
+
 from modules.manifest import get_modules
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -90,16 +92,20 @@ WSGI_APPLICATION = 'swiftstart.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 if env.str("DATABASE_URL", default=None):
     DATABASES = {
         'default': env.db()
+    }
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": env("DJANGO_DATABASE_NAME", default="propelpro"),
+            "USER": env("DJANGO_DATABASE_USER", default="postgres"),
+            "PASSWORD": env("DJANGO_DATABASE_PASSWORD", default="***"),
+            "HOST": env("DJANGO_DATABASE_HOST", default="localhost"),
+            "PORT": env("DJANGO_DATABASE_PORT", default="5432"),
+        }
     }
 
 
@@ -145,3 +151,49 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "users.User"
+
+
+# Django logging configuration and separators
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": '[{asctime}] {levelname} "{name}" {message}',
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": env("DJANGO_LOG_LEVEL", default="INFO"),
+        },
+        "swiftstart": {
+            "handlers": ["console"],
+            "level": env("DJANGO_PROJECT_LOG_LEVEL", default="INFO"),
+        },
+    },
+}
+
+# Sentry Alert configurations
+
+SENTRY_IO_DSN = env("SENTRY_IO_DSN", default="")
+
+if SENTRY_IO_DSN:
+    import sentry_sdk
+    from sentry_sdk.integrations.django import DjangoIntegration
+
+    sentry_sdk.init(
+        dsn=SENTRY_IO_DSN,
+        integrations=[DjangoIntegration()],
+        traces_sample_rate=1.0,
+        send_default_pii=True,
+    )

@@ -36,7 +36,10 @@ Django PropelPro is your indispensable tool for launching Django projects with r
     ```
 
 5. **Explore**: Access the admin panel at `http://localhost:8000/admin` and the app at `http://localhost:8000`.
-
+6. **Sentry Logging**: Add Sentry DSN in .env. Update your all configuration django.
+   ```bash
+   SENTRY_IO_DSN=<SENTRY_DSN>
+   ```
 ## Contributions
 
 We welcome contributions to make Django PropelPro even better! Here's how you can get involved:
